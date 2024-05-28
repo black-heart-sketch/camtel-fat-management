@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/edittext"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+        android:layout_height="40dp"
+        android:background="@drawable/card"
+        android:paddingLeft="15dp"
+        android:hint="Name" />
+
+    <EditText
+        android:background="@drawable/card"
+        android:id="@+id/editTextLatitude"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:hint="Latitude"
+        android:layout_margin="5dp"
+        android:paddingLeft="15dp"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:background="@drawable/card"
+        android:id="@+id/editTextLongitude"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:hint="Longitude"
+        android:paddingLeft="15dp"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:layout_margin="5dp"
+        android:background="@drawable/card"
+        android:id="@+id/editTextState"
+        android:layout_width="match_parent"
+        android:paddingLeft="15dp"
+        android:layout_height="40dp"
+        android:hint="State" />
+
+    <Button
+        android:id="@+id/buttonAddLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext"
+        android:text="Add Location" />
+</LinearLayout>
