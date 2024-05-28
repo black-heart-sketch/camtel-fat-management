@@ -1,7 +1,6 @@
 package com.example.fatcamtel.ui.home;
 
 import android.app.AlertDialog;
-import android.app.Notification;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +19,12 @@ import com.example.fatcamtel.R;
 import com.example.fatcamtel.adapter.LocationAdapter;
 import com.example.fatcamtel.databinding.FragmentHomeBinding;
 import com.example.fatcamtel.model.FatLocation;
-
-import com.example.fatcamtel.ui.notifications.NotificationsFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements LocationAdapter.OnItemClickListener {
+public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private LocationAdapter locationAdapter;
@@ -45,8 +42,8 @@ public class HomeFragment extends Fragment implements LocationAdapter.OnItemClic
         // Initialize the list of locations
         locationList = new ArrayList<>();
 
-        // Initialize the LocationAdapter with the list of locations and the click listener
-        locationAdapter = new LocationAdapter(locationList, this);
+        // Initialize the LocationAdapter with the list of locations
+        locationAdapter = new LocationAdapter(locationList);
 
         // Set up the RecyclerView
         RecyclerView recyclerView = binding.recyclerView;
@@ -105,25 +102,6 @@ public class HomeFragment extends Fragment implements LocationAdapter.OnItemClic
         });
 
         dialog.show();
-    }
-
-    @Override
-    public void onItemClick(FatLocation location) {
-        double latitude = location.getLocation().latitude;
-        double longitude = location.getLocation().longitude;
-
-        Bundle bundle = new Bundle();
-        bundle.putDouble("latitude", latitude);
-        bundle.putDouble("longitude", longitude);
-
-        NotificationsFragment detailFragment = new NotificationsFragment();
-        detailFragment.setArguments(bundle);
-
-        getFragmentManager()
-                .beginTransaction()
-                .replace(R.id.map, detailFragment)
-                .addToBackStack(null)
-                .commit();
     }
 
     @Override
